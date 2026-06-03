@@ -16,7 +16,6 @@ def limpar_nome_empresa(empresa: str) -> str:
     # Remove CPFs grudados ou separados por espaço (11 dígitos, com ou sem formatação)
     empresa = re.sub(r'\d{3}\.?\d{3}\.?\d{3}-?\d{2}', '', empresa)
     # Remove códigos/documentos numéricos no início antes do nome (ex: "51.581.045 Nome")
-    empresa = re.sub(r'^\s*(?:\d[\d\.\-]*)+\s+', '', empresa)
      # Remove sufixos societários no final (LTDA, S/A, S.A, SA, EPP, ME, MEI, EIRELI, etc.)
     empresa = re.sub(r'[\s\-,./]*\s*(?:LTDA|Ltda|ltda|S/A|S\.A\.|S\.A|SA|EPP|MEI?|EIRELI|SS|S/C|FILIAL)\b', '', empresa)
     # Remove sigla de estado isolada no final (ex: " - RS", ", SP", " PR")
